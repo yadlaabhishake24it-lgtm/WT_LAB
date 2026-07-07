@@ -1,0 +1,129 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio | Abhishake</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,200..900;1,6..96,200..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <img src="anits_banner.png" alt="ANITS College Banner">
+    </div>
+
+    <!-- 1. Navigation -->
+    <nav>
+        <div class="logo"><span style="font-size: 14px; font-weight: 600; color: var(--accent); margin-right: 10px; letter-spacing: 1px; text-transform: uppercase; vertical-align: middle;">INFORMATION TECHNOLOGY</span><span style="vertical-align: middle;">Abhishake</span></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- 2. Hero -->
+    <section id="home" class="hero">
+        <div>
+            <h1>Abhishake</h1>
+            <p class="tagline">III B.Tech IT-A | ANITS</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+        <img src="abhi.jpeg" alt="Abhishake Avatar">
+    </section>
+
+    <!-- 3. About -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <p>
+                Hello! I am Abhishake, a passionate student currently pursuing my <strong>Bachelor of
+                    Technology</strong>
+                in <strong>Information Technology</strong> at ANITS.
+                Ever since I wrote my first line of HTML, I have been captivated by the art of turning complex logical
+                problems
+                into simple, beautiful, and intuitive user experiences.
+            </p>
+            <p>
+                My primary interest lies in programming. Beyond my main coursework, I actively engage with
+                the tech community through open-source collaborations, coding hackathons, and exploring modern UI/UX
+                architecture.
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. Skills -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-container">
+            <div class="skill-box">
+                <h3>Core Technologies</h3>
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">Bootstrap</span>
+                <span class="badge">Responsive Web Design</span>
+                
+                <div class="progress">
+                    <div class="html">HTML5 (90%)</div>
+                </div>
+                <div class="progress">
+                    <div class="css">CSS3 (85%)</div>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>Tools & Other Languages</h3>
+                <span class="badge">Python</span>
+                <span class="badge">Git & GitHub</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Projects -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="card">
+                <h3>Smart Transit Planner</h3>
+                <p><strong>Smart Transit Planner</strong> is an intelligent routing system that optimizes urban commute
+                    times using real-time public transit feeds and machine learning.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Contact Form -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer>
+        <p>&copy; 2026 Abhishake. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
