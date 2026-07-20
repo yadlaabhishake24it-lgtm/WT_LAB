@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f7f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Container Styling */
+    .container {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 600px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333333;
+    }
+
+    /* Form Fields Styling */
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #444444;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="password"],
+    .form-group input[type="date"],
+    .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+
+    /* Radio Group Styling */
+    .radio-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 5px;
+    }
+
+    .radio-group label {
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    /* Error and Success Messaging */
+    .error-message {
+      color: #dc3545;
+      font-size: 12px;
+      margin-top: 4px;
+      display: block;
+      min-height: 16px; /* Reserve space for layout stability */
+    }
+
+    .input-error {
+      border-color: #dc3545 !important;
+    }
+
+    .success-alert {
+      display: none;
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 12px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Student Registration Form</h2>
+    
+    <!-- Success Message Container -->
+    <div id="successMessage" class="success-alert">
+      Registration successful!
+    </div>
+
+    <form id="registrationForm" novalidate>
+      
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="fullName">Full Name *</label>
+        <input type="text" id="fullName" placeholder="John Doe">
+        <span class="error-message" id="fullNameError"></span>
+      </div>
+
+      <!-- Roll Number -->
+      <div class="form-group">
+        <label for="rollNumber">Roll Number *</label>
+        <input type="text" id="rollNumber" placeholder="e.g., 21CS101">
+        <span class="error-message" id="rollNumberError"></span>
+      </div>
+
+      <!-- Email ID -->
+      <div class="form-group">
+        <label for="email">Email ID *</label>
+        <input type="email" id="email" placeholder="john.doe@example.com">
+        <span class="error-message" id="emailError"></span>
+      </div>
+
+      <!-- Mobile Number -->
+      <div class="form-group">
+        <label for="mobile">Mobile Number *</label>
+        <input type="tel" id="mobile" placeholder="10-digit phone number">
+        <span class="error-message" id="mobileError"></span>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password *</label>
+        <input type="password" id="password" placeholder="At least 8 characters">
+        <span class="error-message" id="passwordError"></span>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password *</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter password">
+        <span class="error-message" id="confirmPasswordError"></span>
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label>Gender *</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="Male"> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+          <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+        <span class="error-message" id="genderError"></span>
+      </div>
+
+      <!-- Department -->
+      <div class="form-group">
+        <label for="department">Department *</label>
+        <select id="department">
+          <option value="">-- Select Department --</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Information Technology">Information Technology</option>
+          <option value="Electrical Engineering">Electrical Engineering</option>
+          <option value="Mechanical Engineering">Mechanical Engineering</option>
+          <option value="Civil Engineering">Civil Engineering</option>
+        </select>
+        <span class="error-message" id="departmentError"></span>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="form-group">
+        <label for="dob">Date of Birth *</label>
+        <input type="date" id="dob">
+        <span class="error-message" id="dobError"></span>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn">Register</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      // Prevent standard form submission
+      event.preventDefault();
+
+      // Clear previous messages and styling
+      clearErrors();
+      
+      let isValid = true;
+
+      // 1. Full Name Validation
+      const fullName = document.getElementById('fullName');
+      if (fullName.value.trim() === '') {
+        showError(fullName, 'fullNameError', 'Full Name is required.');
+        isValid = false;
+      }
+
+      // 2. Roll Number Validation (Only letters and numbers allowed)
+      const rollNumber = document.getElementById('rollNumber');
+      const rollRegex = /^[a-zA-Z0-9]+$/;
+      if (rollNumber.value.trim() === '') {
+        showError(rollNumber, 'rollNumberError', 'Roll Number is required.');
+        isValid = false;
+      } else if (!rollRegex.test(rollNumber.value.trim())) {
+        showError(rollNumber, 'rollNumberError', 'Roll Number must contain only letters and numbers.');
+        isValid = false;
+      }
+
+      // 3. Email Validation
+      const email = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email.value.trim() === '') {
+        showError(email, 'emailError', 'Email ID is required.');
+        isValid = false;
+      } else if (!emailRegex.test(email.value.trim())) {
+        showError(email, 'emailError', 'Please enter a valid email address.');
+        isValid = false;
+      }
+
+      // 4. Mobile Number Validation (Exactly 10 digits)
+      const mobile = document.getElementById('mobile');
+      const mobileRegex = /^[0-9]{10}$/;
+      if (mobile.value.trim() === '') {
+        showError(mobile, 'mobileError', 'Mobile Number is required.');
+        isValid = false;
+      } else if (!mobileRegex.test(mobile.value.trim())) {
+        showError(mobile, 'mobileError', 'Mobile Number must contain exactly 10 digits.');
+        isValid = false;
+      }
+
+      // 5. Password Validation (At least 8 characters)
+      const password = document.getElementById('password');
+      if (password.value === '') {
+        showError(password, 'passwordError', 'Password is required.');
+        isValid = false;
+      } else if (password.value.length < 8) {
+        showError(password, 'passwordError', 'Password must be at least 8 characters long.');
+        isValid = false;
+      }
+
+      // 6. Confirm Password Validation (Must match Password)
+      const confirmPassword = document.getElementById('confirmPassword');
+      if (confirmPassword.value === '') {
+        showError(confirmPassword, 'confirmPasswordError', 'Please confirm your password.');
+        isValid = false;
+      } else if (password.value !== confirmPassword.value) {
+        showError(confirmPassword, 'confirmPasswordError', 'Passwords do not match.');
+        isValid = false;
+      }
+
+      // 7. Gender Validation
+      const genderOptions = document.getElementsByName('gender');
+      let genderSelected = false;
+      for (const option of genderOptions) {
+        if (option.checked) {
+          genderSelected = true;
+          break;
+        }
+      }
+      if (!genderSelected) {
+        document.getElementById('genderError').innerText = 'Please select a gender.';
+        isValid = false;
+      }
+
+      // 8. Department Validation
+      const department = document.getElementById('department');
+      if (department.value === '') {
+        showError(department, 'departmentError', 'Please select a department.');
+        isValid = false;
+      }
+
+      // 9. Date of Birth Validation
+      const dob = document.getElementById('dob');
+      if (dob.value === '') {
+        showError(dob, 'dobError', 'Date of Birth is required.');
+        isValid = false;
+      }
+
+      // If all validations pass
+      if (isValid) {
+        const successMessage = document.getElementById('successMessage');
+        successMessage.style.display = 'block';
+        
+        // Reset form inputs after successful submission
+        document.getElementById('registrationForm').reset();
+
+        // Scroll back to top to read success message
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    // Helper function to display error styling and message
+    function showError(element, errorId, message) {
+      element.classList.add('input-error');
+      document.getElementById(errorId).innerText = message;
+    }
+
+    // Helper function to clear previous error messages
+    function clearErrors() {
+      const errorMessages = document.querySelectorAll('.error-message');
+      errorMessages.forEach(msg => msg.innerText = '');
+
+      const inputs = document.querySelectorAll('.input-error');
+      inputs.forEach(input => input.classList.remove('input-error'));
+
+      document.getElementById('successMessage').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
